@@ -1,0 +1,10 @@
+﻿  OS09_02.cpp
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_02\OS09_02.cpp(59,53): warning C4244: инициализация: преобразование "LONGLONG" в "unsigned int", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_02\OS09_02.cpp(60,61): warning C4244: инициализация: преобразование "LONGLONG" в "unsigned int", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_02\OS09_02.cpp(62,13): warning C4244: аргумент: преобразование "LONGLONG" в "size_t", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_02\OS09_02.cpp(63,13): warning C4244: аргумент: преобразование "LONGLONG" в "size_t", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_02\OS09_02.cpp(67,43): warning C4244: аргумент: преобразование "LONGLONG" в "DWORD", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_02\OS09_02.cpp(186,42): warning C4244: инициализация: преобразование "LONGLONG" в "unsigned int", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_02\OS09_02.cpp(189,43): warning C4244: аргумент: преобразование "LONGLONG" в "DWORD", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_02\OS09_02.cpp(166,11): warning C4101: fileType: неиспользованная локальная переменная
+  OS09_02.vcxproj -> C:\Users\nk\Desktop\SP\OS9_File_System\OS09\Debug\OS09_02.exe

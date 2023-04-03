@@ -1,0 +1,11 @@
+﻿  OS09_04.cpp
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_04\OS09_04.cpp(23,12): warning C4477: "printf": в строке форматирования "%s" требуется аргумент типа "char *", но вариативный аргумент "1" имеет тип "LPWSTR"
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_04\OS09_04.cpp(23,12): message : рекомендуется использовать "%ls" в строке форматирования
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_04\OS09_04.cpp(23,12): message : рекомендуется использовать "%lls" в строке форматирования
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_04\OS09_04.cpp(23,12): message : рекомендуется использовать "%Ls" в строке форматирования
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_04\OS09_04.cpp(23,12): message : рекомендуется использовать "%ws" в строке форматирования
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_04\OS09_04.cpp(58,75): warning C4244: инициализация: преобразование "LONGLONG" в "unsigned int", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_04\OS09_04.cpp(59,29): warning C4244: аргумент: преобразование "LONGLONG" в "size_t", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_04\OS09_04.cpp(63,59): warning C4244: аргумент: преобразование "LONGLONG" в "DWORD", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_04\OS09_04.cpp(84,25): warning C4018: >: несоответствие типов со знаком и без знака
+  OS09_04.vcxproj -> C:\Users\nk\Desktop\SP\OS9_File_System\OS09\Debug\OS09_04.exe

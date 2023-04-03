@@ -1,0 +1,7 @@
+﻿  OS09_01.cpp
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_01\OS09_01.cpp(55,45): warning C4244: =: преобразование "WCHAR" в "char", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_01\OS09_01.cpp(136,42): warning C4244: инициализация: преобразование "LONGLONG" в "unsigned int", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_01\OS09_01.cpp(137,13): warning C4244: аргумент: преобразование "LONGLONG" в "size_t", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_01\OS09_01.cpp(144,25): warning C4244: аргумент: преобразование "LONGLONG" в "DWORD", возможна потеря данных
+C:\Users\nk\Desktop\SP\OS9_File_System\OS09\OS09_01\OS09_01.cpp(118,11): warning C4101: fileType: неиспользованная локальная переменная
+  OS09_01.vcxproj -> C:\Users\nk\Desktop\SP\OS9_File_System\OS09\Debug\OS09_01.exe

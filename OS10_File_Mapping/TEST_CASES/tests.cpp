@@ -2,7 +2,7 @@
 
 namespace tests
 {
-	// вставка + get true
+	// вставка элемента
 	BOOL test1(ht::HtHandle* htHandle)
 	{
 		ht::Element* insertEl = new ht::Element("test1", 6, "test", 5);
@@ -22,7 +22,8 @@ namespace tests
 		return true;
 	}
 
-	// удаление + get false
+
+	// удаление элемента
 	BOOL test2(ht::HtHandle* htHandle)
 	{
 		ht::Element* element = new ht::Element("test2", 6, "test2", 6);
@@ -35,28 +36,126 @@ namespace tests
 		return true;
 	}
 
-	// вставка 2 раза одно и то же
+	// обновление элемента
 	BOOL test3(ht::HtHandle* htHandle)
 	{
-		ht::Element* element = new ht::Element("test3", 6, "test3", 6);
+		// Создаем элемент с ключом "testKey" и значением "testValue1"
+		ht::Element* insertEl = new ht::Element("testKey", 8, "testValue1", 11);
 
-		ht::insert(htHandle, element);
-		if (ht::insert(htHandle, element))
+		ht::insert(htHandle, insertEl);
+
+
+		// Обновляем элемент с ключом "testKey"
+		ht::update(htHandle, insertEl, "testValue2", 11);
+
+
+		// Получаем элемент с ключом "testKey"
+		ht::Element* getEl = ht::get(htHandle, new ht::Element("testKey", 8));
+
+
+		// Проверяем, что полученное значение соответствует новому значению элемента
+		if (getEl == NULL || getEl->payloadLength != 11 || memcmp(getEl->payload, "testValue2", getEl->payloadLength) != 0)
+		{
+			return false;
+		}
+
+		return true;
+	}
+	
+	// получение элемента
+	BOOL test4(ht::HtHandle* htHandle)
+	{
+		// Создаем элемент и вставляем его в хеш-таблицу
+		ht::Element* insertEl = new ht::Element("t4", 3, "test", 5);
+		ht::insert(htHandle, insertEl);
+		// Получаем элемент по существующему ключу
+		ht::Element* getEl = ht::get(htHandle, new ht::Element("t4", 3));
+
+		// Проверяем, что полученный элемент соответствует ожидаемому
+		if (getEl == NULL || getEl->payloadLength != 5 || memcmp(getEl->payload, "test", getEl->payloadLength) != 0)
+		{
+			return false;
+		}
+
+		return true;
+
+	}
+
+
+	// -------------------------------------------------------------------
+
+
+	// ключ больше максимального значения ключа в хранилище
+	BOOL test5(ht::HtHandle* htHandle)
+	{
+		const char* key = "test5test5test5test5test5";
+		const char* value = "test";
+		ht::Element* insertEl = new ht::Element(key, strlen(key), value, strlen(value));
+
+		if (!ht::insert(htHandle, insertEl)) {
+			return false;
+		}
+
+		return true;
+	}
+
+
+	// Проверяем, что вставка в переполненную хеш-таблицу не работает
+	BOOL test6(ht::HtHandle* htHandle)
+	{
+		const int numElements = htHandle->capacity * 2; // количество элементов, большее, чем вмещает таблица
+
+		const int keyLength = 6;
+		const int payloadLength = 5;
+
+		char key[keyLength];
+		char payload[payloadLength];
+
+		// заполнение хеш-таблицы
+		for (int i = 0; i < numElements; ++i)
+		{
+			for (int j = 0; j < keyLength; ++j)
+			{
+				key[j] = 'a' + (rand() % 26); // генерация случайного ключа
+			}
+			for (int j = 0; j < payloadLength; ++j)
+			{
+				payload[j] = 'a' + (rand() % 26); // генерация случайного значения
+			}
+
+			ht::Element* insertEl = new ht::Element(key, keyLength, payload, payloadLength); // вставка
+			if (!ht::insert(htHandle, insertEl)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	// получение несуществующего элемента
+	BOOL test7(ht::HtHandle* htHandle)
+	{
+		ht::Element* element = new ht::Element("test7", 6);
+
+		if (!(ht::get(htHandle, element)))
 			return false;
 
 		return true;
 	}
 
-	// удаляет 2 раза одно и то же
-	BOOL test4(ht::HtHandle* htHandle)
+	// удаление несуществующего элемента
+	BOOL test8(ht::HtHandle* htHandle)
 	{
-		ht::Element* element = new ht::Element("test4", 6, "test4", 6);
+		ht::Element* element = new ht::Element("test8", 6, "test8", 6);
 
 		ht::insert(htHandle, element);
 		ht::removeOne(htHandle, element);
-		if (ht::removeOne(htHandle, element))
+		if (!(ht::removeOne(htHandle, element)))
 			return false;
 
 		return true;
 	}
+
+
+
 }

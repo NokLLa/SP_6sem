@@ -254,6 +254,18 @@ namespace ht
 			return false;
 		}
 
+		if (element->keyLength > htHandle->maxKeyLength) {
+			writeLastError(htHandle, "-- key size exceeds the maximum allowed");
+			return false;
+		}
+
+		if (element->payloadLength > htHandle->maxPayloadLength) {
+			writeLastError(htHandle, "-- payload size exceeds the maximum allowed");
+			return false;
+		}
+
+		
+
 		WaitForSingleObject(htHandle->mutex, INFINITE);
 		int freeIndex = findFreeIndex(htHandle, element);
 		if (freeIndex < 0)

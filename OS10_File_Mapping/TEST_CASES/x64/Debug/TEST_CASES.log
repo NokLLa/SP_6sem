@@ -1,2 +1,5 @@
-﻿  tests.cpp
+﻿  main.cpp
+  tests.cpp
+C:\Users\nk\Desktop\OS10_File_Mapping\TEST_CASES\tests.cpp(93,82): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  Создание кода...
   TEST_CASES.vcxproj -> C:\Users\nk\Desktop\OS10_File_Mapping\x64\Debug\TEST_CASES.exe

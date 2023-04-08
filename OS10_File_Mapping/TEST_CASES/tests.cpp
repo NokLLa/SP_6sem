@@ -93,17 +93,22 @@ namespace tests
 		ht::Element* insertEl = new ht::Element(key, strlen(key), value, strlen(value));
 
 		if (!ht::insert(htHandle, insertEl)) {
-			return false;
+			const char* expectedError = "-- key size exceeds the maximum allowed";
+			const char* actualError = ht::getLastError(htHandle);
+			if (strcmp(expectedError, actualError) == 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
-
-		return true;
 	}
 
 
 	// Проверяем, что вставка в переполненную хеш-таблицу не работает
 	BOOL test6(ht::HtHandle* htHandle)
 	{
-		const int numElements = htHandle->capacity * 2; // количество элементов, большее, чем вмещает таблица
+		const int numElements = htHandle->capacity + 1; // количество элементов, большее, чем вмещает таблица
 
 		const int keyLength = 6;
 		const int payloadLength = 5;
@@ -125,11 +130,16 @@ namespace tests
 
 			ht::Element* insertEl = new ht::Element(key, keyLength, payload, payloadLength); // вставка
 			if (!ht::insert(htHandle, insertEl)) {
-				return false;
+				const char* expectedError = "-- not found free memory";
+				const char* actualError = ht::getLastError(htHandle);
+				if (strcmp(expectedError, actualError) == 0) {
+					return true;
+				}
+				else {
+					return false;
+				}
 			}
 		}
-
-		return true;
 	}
 
 	// получение несуществующего элемента
@@ -138,9 +148,16 @@ namespace tests
 		ht::Element* element = new ht::Element("test7", 6);
 
 		if (!(ht::get(htHandle, element)))
-			return false;
-
-		return true;
+		{
+			const char* expectedError = "-- not found element (GET)";
+			const char* actualError = ht::getLastError(htHandle);
+			if (strcmp(expectedError, actualError) == 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 	}
 
 	// удаление несуществующего элемента
@@ -151,11 +168,16 @@ namespace tests
 		ht::insert(htHandle, element);
 		ht::removeOne(htHandle, element);
 		if (!(ht::removeOne(htHandle, element)))
-			return false;
-
-		return true;
+		{
+			const char* expectedError = "-- not found element (DELETE)";
+			const char* actualError = ht::getLastError(htHandle);
+			if (strcmp(expectedError, actualError) == 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 	}
-
-
 
 }

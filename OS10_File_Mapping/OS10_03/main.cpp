@@ -33,7 +33,7 @@ int main()
 		ht::print(hte0);
 
 		cout << "\n--------------------- 2 -------------------" << endl;
-		ht2 = ht::open(L"./files/HTspace.ht");
+		ht2 = ht::open(L"./files/HTspace.ht",true); // true - открыть по file mapping'у
 		if (ht2)
 			cout << "-- create: success" << endl;
 		else

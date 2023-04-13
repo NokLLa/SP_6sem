@@ -70,6 +70,8 @@ namespace ht
 		if (!hm)
 			throw "create File Mapping failed";
 
+
+
 		LPVOID lp = MapViewOfFile(
 			hm,
 			FILE_MAP_ALL_ACCESS,
@@ -125,31 +127,40 @@ namespace ht
 		ReleaseMutex(htHandle->mutex);
 		return true;
 	}
-	// --------------------------------------------------------------------------------------------
 
-	HtHandle* open(const wchar_t* fileName)       
+
+
+	// --------------------------------------------------------------------------------------------
+	HtHandle* open
+	(
+		const wchar_t* fileName,         // имя файла
+		bool isMapFile					 // true если открыть fileMapping; false если открыть файл; по умолчанию false
+	)
 	{
-		HtHandle* htHandle = openHtFromFile(fileName);
-		if (htHandle == NULL)
+		HtHandle* htHandle;
+		if (isMapFile)
 		{
 			htHandle = openHtFromMapName(fileName);
-			if (htHandle == NULL)
-				return NULL;
 		}
-
-		runSnapshotTimer(htHandle);
+		else
+		{
+			htHandle = openHtFromFile(fileName);
+			if (htHandle)
+				runSnapshotTimer(htHandle);
+		}
 
 		return htHandle;
 	}
 
-	HtHandle* openHtFromFile(const wchar_t* fileName)
+	HtHandle* openHtFromFile(
+		const wchar_t* fileName)
 	{
 		HANDLE hf = CreateFile(
 			fileName,
 			GENERIC_WRITE | GENERIC_READ,
 			NULL,
 			NULL,
-			OPEN_ALWAYS,
+			OPEN_EXISTING, // сущ
 			FILE_ATTRIBUTE_NORMAL,
 			NULL);
 		if (hf == INVALID_HANDLE_VALUE)
@@ -176,17 +187,20 @@ namespace ht
 		htHandle->fileMapping = hm;
 		htHandle->addr = lp;
 		htHandle->lastSnaptime = time(NULL);
+		htHandle->mutex = CreateMutex(
+			NULL,
+			FALSE,
+			fileName);
 
 		return htHandle;
 	}
 
-	HtHandle* openHtFromMapName(const wchar_t* fileName)
+	HtHandle* openHtFromMapName(
+		const wchar_t* fileName)
 	{
-		HANDLE hm = CreateFileMapping(
-			INVALID_HANDLE_VALUE,
-			NULL,
-			PAGE_READWRITE,
-			0, sizeof(HtHandle),
+		HANDLE hm = OpenFileMapping(
+			FILE_MAP_ALL_ACCESS,
+			false,
 			fileName);
 		if (!hm)
 			return NULL;
@@ -198,42 +212,16 @@ namespace ht
 		if (!lp)
 			return NULL;
 
-		HtHandle* htHandle = (HtHandle*)lp;
+		HtHandle* htHandle = new HtHandle();
+		memcpy(htHandle, lp, sizeof(HtHandle));
 
-		int sizeMapping = sizeof(HtHandle) + getSizeElement(htHandle->maxKeyLength, htHandle->maxPayloadLength) * htHandle->capacity;
-
-		if (!UnmapViewOfFile(lp))
-			return NULL;
-		if (!CloseHandle(hm))
-			return NULL;
-
-		hm = CreateFileMapping(
-			INVALID_HANDLE_VALUE,
-			NULL,
-			PAGE_READWRITE,
-			0, sizeMapping,
-			fileName);
-		if (!hm)
-			return NULL;
-
-		lp = MapViewOfFile(
-			hm,
-			FILE_MAP_ALL_ACCESS,
-			0, 0, 0);
-		if (!lp)
-			return NULL;
-		
-		htHandle = (HtHandle*)lp;
-		/*htHandle = new HtHandle();
-		memcpy(htHandle, lp, sizeof(HtHandle)); */
 		htHandle->file = NULL;
 		htHandle->fileMapping = hm;
 		htHandle->addr = lp;
-		htHandle->lastSnaptime = time(NULL);
+		htHandle->snapshotTimer = NULL;
 
 		return htHandle;
 	}
-
 	// --------------------------------------------------------------------------------------------
 
 

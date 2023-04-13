@@ -51,7 +51,8 @@ namespace ht    // HT API
 
 	HtHandle* open     //  открыть HT             
 	(
-		const wchar_t* fileName         // имя файла 
+		const wchar_t* fileName,        // имя файла 
+		bool isMapFile = false			// true если открыть fileMapping; false если открыть файл; по умолчанию false
 	); 	// != NULL успешное завершение  
 
 	BOOL snap         // выполнить Snapshot

@@ -1,10 +1,1 @@
-﻿  main.cpp
-  tests.cpp
-C:\Users\nk\Desktop\OS10_File_Mapping\TEST_CASES\tests.cpp(93,82): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  Создание кода...
-C:\Users\nk\Desktop\OS10_File_Mapping\TEST_CASES\tests.cpp(143): warning C4715: tests::test6: значение возвращается не при всех путях выполнения
-C:\Users\nk\Desktop\OS10_File_Mapping\TEST_CASES\tests.cpp(161): warning C4715: tests::test7: значение возвращается не при всех путях выполнения
-C:\Users\nk\Desktop\OS10_File_Mapping\TEST_CASES\tests.cpp(105): warning C4715: tests::test5: значение возвращается не при всех путях выполнения
-C:\Users\nk\Desktop\OS10_File_Mapping\TEST_CASES\tests.cpp(181): warning C4715: tests::test8: значение возвращается не при всех путях выполнения
-  LINK : не найден или не выполнена сборка C:\Users\nk\Desktop\OS10_File_Mapping\x64\Debug\TEST_CASES.exe при последней инкрементной компоновке; выполняется полная компоновка
-  TEST_CASES.vcxproj -> C:\Users\nk\Desktop\OS10_File_Mapping\x64\Debug\TEST_CASES.exe
+﻿  TEST_CASES.vcxproj -> C:\Users\nk\Desktop\OS10_File_Mapping\x64\Debug\TEST_CASES.exe

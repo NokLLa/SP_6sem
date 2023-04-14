@@ -61,6 +61,7 @@ namespace ht
 			throw "create or open file failed";
 
 		int sizeMap = sizeof(HtHandle) + getSizeElement(maxKeyLength, maxPayloadLength) * capacity;
+
 		HANDLE hm = CreateFileMapping(
 			hf,
 			NULL,
@@ -87,7 +88,10 @@ namespace ht
 		htHandle->mutex = CreateMutex(
 			NULL,
 			FALSE,
-			fileName);
+			L"myMutex");
+
+		if (htHandle->mutex == NULL)
+			throw "create mutex failed";
 
 		return htHandle;
 	}
@@ -151,15 +155,13 @@ namespace ht
 		if (!lp)
 			return NULL;
 
-		HtHandle* htHandle = (HtHandle*)lp;
+		HtHandle* htHandle = new HtHandle();
+		memcpy(htHandle, lp, sizeof(HtHandle));
+
 		htHandle->file = hf;
 		htHandle->fileMapping = hm;
 		htHandle->addr = lp;
-		htHandle->lastSnaptime = time(NULL);
-		htHandle->mutex = CreateMutex(
-			NULL,
-			FALSE,
-			fileName);
+		htHandle->snapshotTimer = NULL;
 
 		return htHandle;
 	}
@@ -336,14 +338,20 @@ namespace ht
 		HANDLE hfm = htHandle->fileMapping;
 		HANDLE mutex = htHandle->mutex;
 
-		if (htHandle->snapshotTimer)
-			CancelWaitableTimer(htHandle->snapshotTimer);
-		UnmapViewOfFile(htHandle->addr);
-		CloseHandle(hfm);
-		if (hf)
-			CloseHandle(hf);
-		if (mutex)
-			CloseHandle(mutex);
+		if (htHandle->snapshotTimer && !CancelWaitableTimer(htHandle->snapshotTimer))
+			throw "cancel snapshotTimer failed";
+
+		if (!UnmapViewOfFile(htHandle->addr))
+			throw "unmapping view failed";
+
+		if (hfm && !CloseHandle(hfm))
+			throw "close File Mapping failed";
+
+		if (hf && !CloseHandle(hf))
+			throw "close File failed";
+
+		if (mutex && ReleaseMutex(mutex) && !CloseHandle(mutex))
+			throw "close mutex failed";
 
 		return true;
 	}

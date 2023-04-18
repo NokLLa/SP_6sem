@@ -2,7 +2,7 @@
 
 namespace tests
 {
-	// вставка элемента
+	// РІСЃС‚Р°РІРєР° СЌР»РµРјРµРЅС‚Р°
 	BOOL test1(ht::HtHandle* htHandle)
 	{
 		ht::Element* insertEl = new ht::Element("test1", 6, "test", 5);
@@ -23,7 +23,7 @@ namespace tests
 	}
 
 
-	// удаление элемента
+	// СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
 	BOOL test2(ht::HtHandle* htHandle)
 	{
 		ht::Element* element = new ht::Element("test2", 6, "test2", 6);
@@ -36,24 +36,24 @@ namespace tests
 		return true;
 	}
 
-	// обновление элемента
+	// РѕР±РЅРѕРІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
 	BOOL test3(ht::HtHandle* htHandle)
 	{
-		// Создаем элемент с ключом "testKey" и значением "testValue1"
+		// РЎРѕР·РґР°РµРј СЌР»РµРјРµРЅС‚ СЃ РєР»СЋС‡РѕРј "testKey" Рё Р·РЅР°С‡РµРЅРёРµРј "testValue1"
 		ht::Element* insertEl = new ht::Element("testKey", 8, "testValue1", 11);
 
 		ht::insert(htHandle, insertEl);
 
 
-		// Обновляем элемент с ключом "testKey"
+		// РћР±РЅРѕРІР»СЏРµРј СЌР»РµРјРµРЅС‚ СЃ РєР»СЋС‡РѕРј "testKey"
 		ht::update(htHandle, insertEl, "testValue2", 11);
 
 
-		// Получаем элемент с ключом "testKey"
+		// РџРѕР»СѓС‡Р°РµРј СЌР»РµРјРµРЅС‚ СЃ РєР»СЋС‡РѕРј "testKey"
 		ht::Element* getEl = ht::get(htHandle, new ht::Element("testKey", 8));
 
 
-		// Проверяем, что полученное значение соответствует новому значению элемента
+		// РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РїРѕР»СѓС‡РµРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РЅРѕРІРѕРјСѓ Р·РЅР°С‡РµРЅРёСЋ СЌР»РµРјРµРЅС‚Р°
 		if (getEl == NULL || getEl->payloadLength != 11 || memcmp(getEl->payload, "testValue2", getEl->payloadLength) != 0)
 		{
 			return false;
@@ -62,16 +62,16 @@ namespace tests
 		return true;
 	}
 	
-	// получение элемента
+	// РїРѕР»СѓС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
 	BOOL test4(ht::HtHandle* htHandle)
 	{
-		// Создаем элемент и вставляем его в хеш-таблицу
+		// РЎРѕР·РґР°РµРј СЌР»РµРјРµРЅС‚ Рё РІСЃС‚Р°РІР»СЏРµРј РµРіРѕ РІ С…РµС€-С‚Р°Р±Р»РёС†Сѓ
 		ht::Element* insertEl = new ht::Element("t4", 3, "test", 5);
 		ht::insert(htHandle, insertEl);
-		// Получаем элемент по существующему ключу
+		// РџРѕР»СѓС‡Р°РµРј СЌР»РµРјРµРЅС‚ РїРѕ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РµРјСѓ РєР»СЋС‡Сѓ
 		ht::Element* getEl = ht::get(htHandle, new ht::Element("t4", 3));
 
-		// Проверяем, что полученный элемент соответствует ожидаемому
+		// РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РїРѕР»СѓС‡РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РѕР¶РёРґР°РµРјРѕРјСѓ
 		if (getEl == NULL || getEl->payloadLength != 5 || memcmp(getEl->payload, "test", getEl->payloadLength) != 0)
 		{
 			return false;
@@ -85,7 +85,7 @@ namespace tests
 	// -------------------------------------------------------------------
 
 
-	// ключ больше максимального значения ключа в хранилище
+	// РєР»СЋС‡ Р±РѕР»СЊС€Рµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РєР»СЋС‡Р° РІ С…СЂР°РЅРёР»РёС‰Рµ
 	BOOL test5(ht::HtHandle* htHandle)
 	{
 		const char* key = "test5test5test5test5test5";
@@ -105,10 +105,10 @@ namespace tests
 	}
 
 
-	// Проверяем, что вставка в переполненную хеш-таблицу не работает
+	// РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РІСЃС‚Р°РІРєР° РІ РїРµСЂРµРїРѕР»РЅРµРЅРЅСѓСЋ С…РµС€-С‚Р°Р±Р»РёС†Сѓ РЅРµ СЂР°Р±РѕС‚Р°РµС‚
 	BOOL test6(ht::HtHandle* htHandle)
 	{
-		const int numElements = htHandle->capacity + 1; // количество элементов, большее, чем вмещает таблица
+		const int numElements = htHandle->capacity + 1; // РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, Р±РѕР»СЊС€РµРµ, С‡РµРј РІРјРµС‰Р°РµС‚ С‚Р°Р±Р»РёС†Р°
 
 		const int keyLength = 6;
 		const int payloadLength = 5;
@@ -116,19 +116,19 @@ namespace tests
 		char key[keyLength];
 		char payload[payloadLength];
 
-		// заполнение хеш-таблицы
+		// Р·Р°РїРѕР»РЅРµРЅРёРµ С…РµС€-С‚Р°Р±Р»РёС†С‹
 		for (int i = 0; i < numElements; ++i)
 		{
 			for (int j = 0; j < keyLength; ++j)
 			{
-				key[j] = 'a' + (rand() % 26); // генерация случайного ключа
+				key[j] = 'a' + (rand() % 26); // РіРµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ РєР»СЋС‡Р°
 			}
 			for (int j = 0; j < payloadLength; ++j)
 			{
-				payload[j] = 'a' + (rand() % 26); // генерация случайного значения
+				payload[j] = 'a' + (rand() % 26); // РіРµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ
 			}
 
-			ht::Element* insertEl = new ht::Element(key, keyLength, payload, payloadLength); // вставка
+			ht::Element* insertEl = new ht::Element(key, keyLength, payload, payloadLength); // РІСЃС‚Р°РІРєР°
 			if (!ht::insert(htHandle, insertEl)) {
 				const char* expectedError = "-- not found free memory";
 				const char* actualError = ht::getLastError(htHandle);
@@ -142,7 +142,7 @@ namespace tests
 		}
 	}
 
-	// получение несуществующего элемента
+	// РїРѕР»СѓС‡РµРЅРёРµ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р°
 	BOOL test7(ht::HtHandle* htHandle)
 	{
 		ht::Element* element = new ht::Element("test7", 6);
@@ -160,7 +160,7 @@ namespace tests
 		}
 	}
 
-	// удаление несуществующего элемента
+	// СѓРґР°Р»РµРЅРёРµ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р°
 	BOOL test8(ht::HtHandle* htHandle)
 	{
 		ht::Element* element = new ht::Element("test8", 6, "test8", 6);

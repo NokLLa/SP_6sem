@@ -23,14 +23,6 @@ int main()
 		else
 			throw "-- insert: error";
 
-		// *для примера, по заданию не надо* можем вставить второй элемент точно такой же и посмотреть через f11 как будет реализована открытая адресация
-		// индекс первого 329 , второго будет тоже 329 потом +1 и он будет 330 и запишет в память под 330.
-		if (ht::insert(ht, new ht::Element("key", 4, "pay3oad", 8)))
-			cout << "-- insert: success" << endl;
-		else
-			throw "-- insert: error";
-
-
 
 		ht::Element* hte = ht::get(ht, new ht::Element("key", 4));
 		if (hte)

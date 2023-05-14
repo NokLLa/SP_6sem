@@ -1,5 +1,1 @@
-﻿  main.cpp
-C:\Users\nk\Desktop\SP\OS11_DLL\OS11_HTAPI\Element.h(17,3): warning C4091: __declspec(dllexport): пропускается слева от "ht::Element", когда ни одна переменная не объявлена
-C:\Users\nk\Desktop\SP\OS11_DLL\OS11_HTAPI\HT.h(44,3): warning C4091: __declspec(dllexport): пропускается слева от "ht::HtHandle", когда ни одна переменная не объявлена
-  LINK : не найден или не выполнена сборка C:\Users\nk\Desktop\SP\OS11_DLL\x64\Debug\OS11_START.exe при последней инкрементной компоновке; выполняется полная компоновка
-  OS11_START.vcxproj -> C:\Users\nk\Desktop\SP\OS11_DLL\x64\Debug\OS11_START.exe
+﻿  OS11_START.vcxproj -> C:\Users\nk\Desktop\OS11_DLL\x64\Debug\OS11_START.exe

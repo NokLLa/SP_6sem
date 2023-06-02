@@ -1,0 +1,10 @@
+﻿  dllmain.cpp
+  Math.cpp
+  MathFactory.cpp
+  Registry.cpp
+C:\Users\nk\Desktop\OS12_COM-DLL\OS12_COM\Registry.cpp(146,27): warning C4267: аргумент: преобразование из "size_t" в "DWORD"; возможна потеря данных
+  Создание кода...
+  LINK : не найден или не выполнена сборка C:\Users\nk\Desktop\OS12_COM-DLL\x64\Debug\OS12_COM.dll при последней инкрементной компоновке; выполняется полная компоновка
+OS_COM.def(1): warning LNK4017: оператор LIBARY не поддерживается на конечной платформе; пропущен
+     Создается библиотека C:\Users\nk\Desktop\OS12_COM-DLL\x64\Debug\OS12_COM.lib и объект C:\Users\nk\Desktop\OS12_COM-DLL\x64\Debug\OS12_COM.exp
+  OS12_COM.vcxproj -> C:\Users\nk\Desktop\OS12_COM-DLL\x64\Debug\OS12_COM.dll

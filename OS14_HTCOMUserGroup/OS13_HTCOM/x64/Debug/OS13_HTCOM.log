@@ -1,0 +1,16 @@
+﻿  pch.cpp
+  dllmain.cpp
+  HT.cpp
+C:\Users\nk\Desktop\OS14_HTCOMUserGroup\OS13_HTCOM\HT.cpp(602,93): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\nk\Desktop\OS14_HTCOMUserGroup\OS13_HTCOM\HT.cpp(610,113): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\nk\Desktop\OS14_HTCOMUserGroup\OS13_HTCOM\HT.cpp(635,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\nk\Desktop\OS14_HTCOMUserGroup\OS13_HTCOM\HT.cpp(660,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\nk\Desktop\OS14_HTCOMUserGroup\OS13_HTCOM\HT.cpp(686,21): warning C4018: <: несоответствие типов со знаком и без знака
+  HTFactory.cpp
+  HTHandle.cpp
+  Registry.cpp
+C:\Users\nk\Desktop\OS14_HTCOMUserGroup\OS13_HTCOM\Registry.cpp(141,27): warning C4267: аргумент: преобразование из "size_t" в "DWORD"; возможна потеря данных
+  Создание кода...
+OS13_HTCOM.def(1): warning LNK4017: оператор LIBARY не поддерживается на конечной платформе; пропущен
+     Создается библиотека C:\Users\nk\Desktop\OS14_HTCOMUserGroup\x64\Debug\OS14_HTCOM.lib и объект C:\Users\nk\Desktop\OS14_HTCOMUserGroup\x64\Debug\OS14_HTCOM.exp
+  OS13_HTCOM.vcxproj -> C:\Users\nk\Desktop\OS14_HTCOMUserGroup\x64\Debug\OS14_HTCOM.dll

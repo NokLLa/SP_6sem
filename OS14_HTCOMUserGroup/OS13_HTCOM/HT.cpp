@@ -679,7 +679,7 @@ BOOL HT::CheckCurrentUser(HTHANDLE* ht, const wchar_t UserName[512], const wchar
 		std::cout << "Error";
 	PGROUP_USERS_INFO_0 buf3;
 	DWORD uc3 = 0, tc3 = 0;
-	auto ns3 = NetLocalGroupEnum(NULL, 0, (LPBYTE*)&buf3, MAX_PREFERRED_LENGTH, &uc3, &tc3, 0);
+	auto ns3 = NetUserGetLocalGroups(NULL, un, 0, LG_INCLUDE_INDIRECT, (LPBYTE*)&buf3, MAX_PREFERRED_LENGTH, &uc3, &tc3);
 
 	int count{};
 	if (ns3 == NERR_Success)

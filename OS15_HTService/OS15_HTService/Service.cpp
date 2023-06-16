@@ -16,7 +16,7 @@ PROCESS_INFORMATION* OpenHT()
     si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));
 
-    std::wstring szExePath = L"T:\\C3S2\\OS\\HTService\\x64\\Debug\\OS15_START.exe T:\\C3S2\\OS\\HTService\\HT\\test.ht";
+    std::wstring szExePath = L"C:\\Users\\nk\\Desktop\\OS15_HTService\\x64\\Debug\\OS15_START.exe C:\\Users\\nk\\Desktop\\OS15_HTService\\HT\\test.ht";
 
     // Запуск внешней программы
     if (!CreateProcess(NULL, const_cast<LPWSTR>(szExePath.c_str()), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi))

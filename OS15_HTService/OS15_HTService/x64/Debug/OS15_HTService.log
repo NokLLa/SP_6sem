@@ -1,0 +1,6 @@
+﻿  OS15_HTService.cpp
+C:\Users\nk\Desktop\HTService\OS15_HTService\OS15_HTService.cpp(4,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  Service.cpp
+  Создание кода...
+C:\Users\nk\Desktop\HTService\OS15_HTService\Service.cpp(30): warning C4172: возвращение адреса локальной или временной переменной : pi
+  OS15_HTService.vcxproj -> C:\Users\nk\Desktop\HTService\x64\Debug\OS15_HTService.exe

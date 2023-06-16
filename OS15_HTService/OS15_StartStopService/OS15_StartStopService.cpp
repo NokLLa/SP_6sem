@@ -3,7 +3,7 @@
 #include <string>
 
 #define SERVICENAME L"OS15HT"
-#define SERVICEPATH L"T:\\C3S2\\OS\\HTService\\x64\\Debug\\OS15_HTService.exe"
+#define SERVICEPATH L"C:\\Users\\nk\\Desktop\\OS15_HTService\\x64\\Debug\\OS15_HTService.exe"
 
 char* errortxt(const char* msg, int code)
 {

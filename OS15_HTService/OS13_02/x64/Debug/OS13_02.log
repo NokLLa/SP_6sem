@@ -1,0 +1,33 @@
+﻿  OS13_02.cpp
+C:\Users\nk\Desktop\HTService\OS13_02\OS13_02.cpp(46,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\nk\Desktop\HTService\OS13_02\OS13_02.cpp(103,92): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(2824,53): warning C4244: аргумент: преобразование "wchar_t" в "const _Elem", возможна потеря данных
+          with
+          [
+              _Elem=char
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(2664): message : выполняется компиляция ссылки на экземпляр шаблон функции "void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct_from_iter<wchar_t*>(_Iter,const _Iter)"
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\xstring(2664): message : выполняется компиляция ссылки на экземпляр шаблон функции "void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct_from_iter<wchar_t*>(_Iter,const _Iter)"
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Users\nk\Desktop\HTService\OS13_02\OS13_02.cpp(75): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)"
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+C:\Users\nk\Desktop\HTService\OS13_02\OS13_02.cpp(75): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)"
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+  OS13_02.vcxproj -> C:\Users\nk\Desktop\HTService\x64\Debug\OS15_02.exe
